@@ -25,3 +25,4 @@ ENV PATH="/.venv/bin:$PATH"
 COPY . .
 
 RUN apk --no-cache add libpq
+ENTRYPOINT ["python", "server.py"]

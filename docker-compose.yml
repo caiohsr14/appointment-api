@@ -33,7 +33,6 @@ services:
 
   billing-api:
     build: billing
-    entrypoint: python server.py
     depends_on:
       postgres:
         condition: service_healthy
