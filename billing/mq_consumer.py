@@ -14,8 +14,8 @@ from uuid import uuid4
 appointment_props = ["id", "start_date", "end_date", "physician_id", "patient_id", "price"]
 
 class Processor():
-	def __init__(self):
-		self.db_url = settings.postgres_url
+	def __init__(self, db_url):
+		self.db_url = db_url
 
 	async def process(self, appointment):
 		if not all(prop in appointment.keys() for prop in appointment_props):
@@ -58,7 +58,7 @@ async def main(loop, logger):
 
 		logger.info("Connection established")
 
-		processor = Processor()
+		processor = Processor(settings.postgres_url)
 		channel = await connection.channel()
 		await channel.set_qos(prefetch_count=1)
 
