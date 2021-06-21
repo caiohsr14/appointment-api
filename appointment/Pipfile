@@ -11,6 +11,9 @@ dynaconf = "*"
 aio-pika = "*"
 yoyo-migrations = "*"
 psycopg2 = "*"
+pytest-asyncio = "*"
+httpx = "*"
+pytest = "*"
 
 [dev-packages]
 
